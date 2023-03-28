@@ -36,6 +36,7 @@ public class APIClienteController {
 	@PostMapping
 	public ResponseEntity<Object> saveCliente(@RequestBody @Valid ClienteDTO clienteDTO, BindingResult result) {
 		cliente = new Cliente();
+		logger.info(">>>>>> apicontroller post savecliente chamada ");
 		if (result.hasErrors()) {
 			logger.info(">>>>>> apicontroller validacao da entrada dados invalidos" + result.getFieldError());
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Dados inválidos.");
